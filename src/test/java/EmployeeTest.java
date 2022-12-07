@@ -8,7 +8,7 @@ class EmployeeTest {
     private Employee myEmp;
     @BeforeEach
     void setUp() {
-        myEmp = new Employee("John", 12345678910l, "Full-time","Man", 21);
+        myEmp = new Employee("John", "12345678910", "Full-time","Man", 21);
     }
 
     @Test
@@ -17,44 +17,44 @@ class EmployeeTest {
     }
     @Test
     void testNameF(){
-        Exception exMessage = assertThrows(IllegalArgumentException.class,()->{new Employee("J", 12345678910l, "Full-time","Man", 21);});
+        Exception exMessage = assertThrows(IllegalArgumentException.class,()->{new Employee("J", "12345678910", "Full-time","Man", 21);});
         assertEquals("This is not a valid name.",exMessage.getMessage());
     }
     @Test
     void testPPSid(){
-        assertEquals("John", myEmp.getName());
+        assertEquals("12345678910l", myEmp.getPPSid());
     }
     @Test
     void testPPSidF(){
-        Exception exMessage = assertThrows(IllegalArgumentException.class,()->{new Employee("John", 10l, "Full-time","Man", 21);});
-        assertEquals("This is not a valid name.",exMessage.getMessage());
+        Exception exMessage = assertThrows(IllegalArgumentException.class,()->{new Employee("John", "10l", "Full-time","Man", 21);});
+        assertEquals("This is not a valid PPS ID.",exMessage.getMessage());
     }
     @Test
-            void testType(){
-        assertEquals("John", myEmp.getName());
+    void testType(){
+        assertEquals("Full-time", myEmp.getType());
     }
     @Test
     void testTypeF(){
-        Exception exMessage = assertThrows(IllegalArgumentException.class,()->{new Employee("John", 12345678910l, "Ftime","Man", 21);});
-        assertEquals("This is not a valid name.",exMessage.getMessage());
+        Exception exMessage = assertThrows(IllegalArgumentException.class,()->{new Employee("John", "12345678910", "Ftime","Man", 21);});
+        assertEquals("This is not a valid type.",exMessage.getMessage());
     }
     @Test
     void testGender(){
-        assertEquals("John", myEmp.getName());
+        assertEquals("Male", myEmp.getGender());
     }
     @Test
     void testGenderF(){
-        Exception exMessage = assertThrows(IllegalArgumentException.class,()->{new Employee("John", 12345678910l, "Full-time","zzz", 21);});
-        assertEquals("This is not a valid name.",exMessage.getMessage());
+        Exception exMessage = assertThrows(IllegalArgumentException.class,()->{new Employee("John", "12345678910", "Full-time","zzz", 21);});
+        assertEquals("This is not a valid gender.",exMessage.getMessage());
     }
     @Test
     void testAge(){
-        assertEquals("John", myEmp.getName());
+        assertEquals("21", myEmp.getAge());
     }
     @Test
     void testAgeF(){
-        Exception exMessage = assertThrows(IllegalArgumentException.class,()->{new Employee("John", 12345678910l, "Full-time","Man", 12);});
-        assertEquals("This is not a valid name.",exMessage.getMessage());
+        Exception exMessage = assertThrows(IllegalArgumentException.class,()->{new Employee("John", "12345678910", "Full-time","Man", 12);});
+        assertEquals("This is not a valid age.",exMessage.getMessage());
     }
     @AfterEach
     void tearDown() {
