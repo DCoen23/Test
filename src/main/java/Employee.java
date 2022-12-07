@@ -13,6 +13,9 @@ public class Employee {
         setAge(age);
     }
 
+    public String getName(){
+        return name;
+    }
     private void setName(String name) {
     }
 
