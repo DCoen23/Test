@@ -49,7 +49,7 @@ class EmployeeTest {
     }
     @Test
     void testAge(){
-        assertEquals("21", myEmp.getAge());
+        assertEquals(21, myEmp.getAge());
     }
     @Test
     void testAgeF(){
